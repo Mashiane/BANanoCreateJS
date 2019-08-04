@@ -1,0 +1,153 @@
+﻿AppType=JavaFX
+Build1=Default,b4j.example
+File1=butterfly.png
+File10=sky.png
+File11=soundjs-0.5.2.min.js
+File12=tweenjs-0.5.1.min.js
+File13=woosh.mp3
+File2=chime.mp3
+File3=createjs.min.js
+File4=easeljs-0.7.1.min.js
+File5=grant.png
+File6=ground.png
+File7=hill1.png
+File8=hill2.png
+File9=preloadjs-0.4.1.min.js
+FileGroup1=Default Group
+FileGroup10=Default Group
+FileGroup11=Default Group
+FileGroup12=Default Group
+FileGroup13=Default Group
+FileGroup2=Default Group
+FileGroup3=Default Group
+FileGroup4=Default Group
+FileGroup5=Default Group
+FileGroup6=Default Group
+FileGroup7=Default Group
+FileGroup8=Default Group
+FileGroup9=Default Group
+Group=Default Group
+Library1=jcore
+Library2=jfx
+Library3=banano
+Library4=bananopostprocessor
+Module1=pgLesson16
+Module10=pgLesson10
+Module11=UOENowHTML
+Module12=CreateJSGraphics
+Module13=pgLesson08
+Module14=pgLesson02
+Module15=pgLesson03
+Module16=pgLesson04
+Module17=pgLesson05
+Module18=pgLesson06
+Module19=pgLesson07
+Module2=CreateJSShape
+Module20=pgLesson09
+Module21=pgLesson12
+Module22=pgLesson13
+Module23=pgLesson14
+Module24=pgLesson15
+Module25=CreateJSSprite
+Module26=CreateJSBitmap
+Module27=pgLesson17
+Module28=CreateJSText
+Module29=pgLesson18
+Module3=CreateJSImage
+Module30=pgLesson19
+Module31=pgLesson20
+Module32=pgLesson21
+Module33=pgLesson22
+Module4=pgLesson11
+Module5=CreateJSSpriteSheet
+Module6=CreateJSAnimation
+Module7=pgLesson01
+Module8=pgIndex
+Module9=BANanoCreateJS
+NumberOfFiles=13
+NumberOfLibraries=4
+NumberOfModules=33
+Version=7.51
+@EndOfDesignText@
+#IgnoreWarnings:15
+#Region Project Attributes 
+	#MergeLibraries: True
+	#LibraryAuthor: Anele Mashy Mbanga
+	#LibraryVersion: 0.1
+#End Region
+
+Sub Process_Globals
+	Private BANano As BANano
+	Private BP As BANanoPostProcessor
+	Private Publish As String
+	Private AppName As String = "AtariBreakOut"
+End Sub
+
+Sub AppStart (Form1 As Form, Args() As String)
+	Publish = "C:\xampp\htdocs"
+	Publish = "C:\laragon\www"
+	Dim version As String = DateTime.now
+	BANano.Initialize("BANano",AppName,version)
+	BANano.HTML_NAME = "index.html"
+	BANano.Header.Title = AppName
+	BANano.JAVASCRIPT_NAME = $"app${version}.js"$
+	'
+	'*** OLD VERSION
+	BANano.Header.AddJavascriptFile("easeljs-0.7.1.min.js")
+	BANano.Header.AddJavascriptFile("tweenjs-0.5.1.min.js")
+	BANano.Header.AddJavascriptFile("soundjs-0.5.2.min.js")
+	BANano.Header.AddJavascriptFile("preloadjs-0.4.1.min.js")
+	'*** NEW VERSION
+	'BANano.Header.AddJavascriptFile("createjs.min.js")
+	
+	'BANano.TranspilerOptions.MergeAllCSSFiles = True
+	'BANano.TranspilerOptions.MergeAllJavascriptFiles = True
+	'BANano.TranspilerOptions.ShowWarningDeadCode = True
+	'BANano.TranspilerOptions.RemoveDeadCode = True
+	BANano.TranspilerOptions.UseServiceWorker = False
+	BANano.Build(Publish)
+	'post processor
+	BP.Initialize
+	BP.PublishPath = Publish
+	BP.ShortName = AppName
+	BP.AssetsPath = BANano.ASSETS_FOLDER
+	BP.ScriptsPath = BANano.SCRIPTS_FOLDER
+	BP.StylesPath = BANano.STYLES_FOLDER
+	BP.ScriptFile = BANano.JAVASCRIPT_NAME
+	BP.Open(True)
+	ExitApplication
+End Sub
+
+'Return true to allow the default exceptions handler to handle the uncaught exception.
+Sub Application_Error (Error As Exception, StackTrace As String) As Boolean
+	Return True
+End Sub
+
+Sub BANano_Ready
+	'uncomment this line only for LESSON 1
+	'pgLesson01.Init
+	'uncomment this line only for LESSON 2
+	'pgLesson02.Init ' introducing tweening
+	'pgLesson03.init   ' fade the image and loop the animation
+	'pgLesson04.Init   ' easing functions
+	'pgLesson05.init ' more tweening options
+	'pgLesson06.init ' graphics and shapes
+	'pgLesson07.init ' bouncing ball
+	'pgLesson08.init ' progress bar UI element
+	'pgLesson09.Init ' events
+	'pgLesson10.Init  'try a game 
+	'pgLesson11.Init  'move a circle via click, NO TICKING
+	'pgLesson12.Init   'drag and drop shapes
+	'pgLesson13.Init   'we add tweening directly to the Shape class object
+	'pgLesson14.Init   'transform images
+	'pgLesson15.Init    'sprites
+	'pgLesson16.init     'caching images and shapes
+	'pgLesson17.Init     'a paint application ***
+	'pgLesson18.init	'vector masks
+	'pgLesson19.Init 	'masking images
+	'pgLesson20.Init     'playing with vector masks
+	pgLesson21.init  ' keyboard events
+	'pgLesson22.init  ' keyboard events
+	'pgCanvas.Init
+	'pgIndex.Init
+End Sub
