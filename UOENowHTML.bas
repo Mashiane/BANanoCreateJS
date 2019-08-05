@@ -28,6 +28,40 @@ Sub Class_Globals
 	Private TextAfter As Boolean
 End Sub
 
+Sub AddStrong(sText As String) As UOENowHTML
+	Dim str As UOENowHTML
+	str.Initialize("","strong").AddContent(sText)
+	AddContent(str.HTML)
+	Return Me 
+End Sub
+
+Sub AddSpan(sText As String, spanStyles As Map) As UOENowHTML
+	Dim str As UOENowHTML
+	str.Initialize("","span").AddContent(sText)
+	If spanStyles <> Null Then
+		For Each k As String In spanStyles.Keys
+			Dim v As String = spanStyles.Get(k)
+			str.SetStyle(k,v)
+		Next
+	End If
+	AddContent(str.HTML)
+	Return Me
+End Sub
+
+Sub AddItalic(sText As String, spanStyles As Map) As UOENowHTML
+	Dim str As UOENowHTML
+	str.Initialize("","i").AddContent(sText)
+	If spanStyles <> Null Then
+		For Each k As String In spanStyles.Keys
+			Dim v As String = spanStyles.Get(k)
+			str.SetStyle(k,v)
+		Next
+	End If
+	AddContent(str.HTML)
+	Return Me 
+End Sub
+
+
 'set style
 Sub SetStyle(prop As String, val As String) As UOENowHTML
 	AddStyle(prop,val)

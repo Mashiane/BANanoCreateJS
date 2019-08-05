@@ -61,7 +61,7 @@ End Sub
 
 Sub handleMouseDown(e As BANanoEvent)
 	Log(e)
-	If game.contains(title.text) Then
+	If game.Exists(title.text) Then
 		game.Clear
 		game.RemoveChild(title.text)
 	End If

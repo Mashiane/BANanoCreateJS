@@ -58,6 +58,9 @@ Module30=pgLesson19
 Module31=pgLesson20
 Module32=pgLesson21
 Module33=pgLesson22
+Module34=pgLesson23
+Module35=CreateJSDOMElement
+Module36=pgLesson24
 Module4=pgLesson11
 Module5=CreateJSSpriteSheet
 Module6=CreateJSAnimation
@@ -66,7 +69,7 @@ Module8=pgIndex
 Module9=BANanoCreateJS
 NumberOfFiles=13
 NumberOfLibraries=4
-NumberOfModules=33
+NumberOfModules=36
 Version=7.51
 @EndOfDesignText@
 #IgnoreWarnings:15
@@ -146,8 +149,10 @@ Sub BANano_Ready
 	'pgLesson18.init	'vector masks
 	'pgLesson19.Init 	'masking images
 	'pgLesson20.Init     'playing with vector masks
-	pgLesson21.init  ' keyboard events
+	'pgLesson21.init  ' keyboard events
 	'pgLesson22.init  ' keyboard events
+	'pgLesson23.init
+	pgLesson24.init
 	'pgCanvas.Init
 	'pgIndex.Init
 End Sub

@@ -293,7 +293,7 @@ Sub Clear()
 End Sub
 
 'contains
-Sub Contains(i As BANanoObject) As Boolean
+Sub Exists(i As BANanoObject) As Boolean
 	Dim res As Boolean = stage.RunMethod("contains", Array(i)).Result
 	Return res
 End Sub
@@ -304,7 +304,7 @@ private Sub loadComplete()
 	'get the canvas
 	canvas = stage.GetField("canvas")
 	'call game_ready in the parent
-	If BANano.SubExists(owner,"game_ready") Then
+	If SubExists(owner,"game_ready") Then
 		BANano.CallSub(owner,"game_ready",Null)
 	Else
 		Log("game_ready is missing on host!")
@@ -448,7 +448,7 @@ End Sub
 
 'update the stage each time the ticker fires
 private Sub stageUpdate()
-	If BANano.SubExists(owner,"game_update") Then
+	If SubExists(owner,"game_update") Then
 		BANano.CallSub(owner,"game_update", Null)
 	Else
 		Log("game_update is missing on host!")

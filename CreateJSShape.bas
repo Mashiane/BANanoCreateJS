@@ -311,6 +311,16 @@ Sub SetY(y As Int)
 	Shape.SetField("y", y)
 End Sub
 
+'set width position
+Sub SetWidth(y As Int)
+	Shape.SetField("width", y)
+End Sub
+
+'set height position
+Sub SetHeight(y As Int)
+	Shape.SetField("height", y)
+End Sub
+
 'get x position
 Sub GetX() As Long
 	Dim res As Long = Shape.GetField("x").result
