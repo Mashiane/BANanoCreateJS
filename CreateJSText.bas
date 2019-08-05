@@ -9,8 +9,42 @@ Sub Class_Globals
 	Public Text As BANanoObject
 End Sub
 
-Public Sub Initialize(sText As String, sFont As String, sColor As String) As CreateJSText
-	Text.Initialize2("createjs.Text", Array(sText, sFont, sColor))
+Public Sub Initialize(sText As String, sFont As String, SColor As String) As CreateJSText
+	Text.Initialize2("createjs.Text", Array(sText, sFont, SColor))
+	Return Me
+End Sub
+
+Public Sub Initialize1(sText As String) As CreateJSText
+	Text.Initialize2("createjs.Text", Array(sText))
+	Return Me
+End Sub
+
+Public Sub Initialize2(sText As String, sFont As String) As CreateJSText
+	Text.Initialize2("createjs.Text", Array(sText, sFont))
+	Return Me
+End Sub
+
+'set font
+Sub SetFont(f As Object) As CreateJSText
+	Text.SetField("font", f)
+	Return Me
+End Sub
+
+'set alpha
+Sub SetAlpha(f As Object) As CreateJSText
+	Text.SetField("alpha", f)
+	Return Me
+End Sub
+
+'set text
+Sub SetText(t As Object) As CreateJSText
+	Text.SetField("text", t)
+	Return Me
+End Sub
+
+'set color
+Sub SetColor(c As Object) As CreateJSText
+	Text.SetField("color", c)
 	Return Me
 End Sub
 

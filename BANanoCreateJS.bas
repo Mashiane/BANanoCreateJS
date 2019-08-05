@@ -135,6 +135,11 @@ Sub GetEventTarget(e As BANanoEvent) As BANanoObject
 	Return res
 End Sub
 
+Sub GetChildByName(n As String) As BANanoObject
+	Dim bo As BANanoObject = stage.RunMethod("getChildByName", Array(n))
+	Return bo
+End Sub
+
 'get shape from event
 Sub GetEventShape(e As BANanoEvent) As CreateJSShape
 	Dim res As BANanoObject = GetEventTarget(e)

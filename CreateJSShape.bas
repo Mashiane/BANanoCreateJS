@@ -107,8 +107,8 @@ Sub Refresh
 End Sub
 
 'get the local point for the shape
-Sub GlobalToLocal(x As Int, y As Int) As BANanoObject
-	Dim pt As BANanoObject = Shape.RunMethod("globalToLocal", Array(x, y))
+Sub GlobalToLocal(ix As Int, iy As Int) As BANanoObject
+	Dim pt As BANanoObject = Shape.RunMethod("globalToLocal", Array(ix, iy))
 	Return pt
 End Sub
 
@@ -393,6 +393,13 @@ Sub SetRotation(y As Int)
 	Shape.SetField("rotation", y)
 End Sub
 
+Sub regX(x As Int)
+	Shape.SetField("regX", x)
+End Sub
+
+Sub regY(x As Int)
+	Shape.SetField("regY", x)
+End Sub
 
 'set regX position
 Sub SetRegX(x As Int)
@@ -412,4 +419,15 @@ End Sub
 'set nextY position
 Sub SetNextY(y As Int)
 	Shape.SetField("nextY", y)
+End Sub
+
+'set txt position
+Sub SetTxt(txt As BANanoObject)
+	Shape.SetField("txt", txt)
+End Sub
+
+'get the txt content
+Sub GetTxt As BANanoObject
+	Dim bo As BANanoObject = Shape.GetField("txt")
+	Return bo
 End Sub

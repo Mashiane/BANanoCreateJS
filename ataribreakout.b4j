@@ -61,6 +61,7 @@ Module33=pgLesson22
 Module34=pgLesson23
 Module35=CreateJSDOMElement
 Module36=pgLesson24
+Module37=pgWordGame
 Module4=pgLesson11
 Module5=CreateJSSpriteSheet
 Module6=CreateJSAnimation
@@ -69,7 +70,7 @@ Module8=pgIndex
 Module9=BANanoCreateJS
 NumberOfFiles=13
 NumberOfLibraries=4
-NumberOfModules=36
+NumberOfModules=37
 Version=7.51
 @EndOfDesignText@
 #IgnoreWarnings:15
@@ -152,7 +153,8 @@ Sub BANano_Ready
 	'pgLesson21.init  ' keyboard events
 	'pgLesson22.init  ' keyboard events
 	'pgLesson23.init
-	pgLesson24.init
+	'pgLesson24.init
 	'pgCanvas.Init
+	pgWordGame.Init
 	'pgIndex.Init
 End Sub
